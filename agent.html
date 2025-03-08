@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate Agents</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+   
+.mainNv{
+  background-color: #000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  color: white;
+  position: relative;
+  z-index: 1000;
+  width: 100%;
+  height: 120px;
+  font-family: Georgia, 'Times New Roman', Times, serif; /* Use the imported font */
+  
+  
+}
+.mainNav-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+ 
+}
+
+/* Nav Links */
+.mainnav-links {
+  list-style: none;
+  display: flex;
+justify-content: center;
+  gap: 2.5rem;
+ 
+  width: 100%;
+ 
+}
+
+.mainnav-links li a {
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 2.6rem;
+  transition: color 0.3s;
+}
+.closeNav-toggle {
+  display: none;
+  position: absolute;
+  top: 30px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+  z-index: 10; /* Ensure it's above other elements */
+}
+
+.mainnav-links.show .closeNav-toggle {
+  display: block; /* Show the button when menu is visible */
+}
+.mainnav-links li a:hover {
+  color: #f68113;
+}
+.Navmenu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 11;
+  
+}
+.Navmenu-toggle .bar {
+  width: 25px;
+  height: 3px;
+  background-color: #007BFF;
+  transition: all 0.3s ease;
+}
+/* Responsive Design */
+
+@media (max-width: 768px) {
+  .mainNv {
+  padding: em;
+  background: #fcf9f9;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 6px rgb(12, 46, 179);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+
+ 
+}
+
+  .mainNav-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    
+  }
+
+  .Navmenu-toggle {
+    display: flex;
+    background: #fcf9f9;
+    
+    
+  }
+
+  .logo img {
+    display: block;
+  }
+
+  .mainnav-links {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Hidden by default */
+    flex-direction: column;
+    background: #000; /* Add background for visibility */
+    height: 100vh;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    transition: right 0.3s ease-in-out;
+    z-index: 19; /* Above content but below toggle */
+    overflow-y: auto; /* Allow scrolling if the content overflows */
+  }
+  
+  .mainnav-links.show {
+    right: 0; /* Make visible */
+  }
+  
+  .mainnav-links li {
+    margin: 1rem 0; /* Space between links */
+    font-size: 13px;
+  }
+  .mainnav-links li a{
+    font-size: 20px;
+  }
+
+}
+
+.second-header {
+ display: flex;
+ justify-content: space-around;
+ align-items: center;
+ height: 4rem;
+ font-size: 1.4em;
+ flex-wrap: wrap;
+ text-align: center;
+ background-color: rgba(209, 205, 205, 0.387);
+}
+.second-header a{
+ text-decoration: none;
+ color: #111;
+}
+
+@media (max-width: 768px) {
+ .hero {
+     font-size: 1.5rem;
+     height: 300px;
+ }
+ .second-header {
+     display: none;
+     flex-direction: column;
+     height: auto;
+     padding: 10px 0;
+ }
+ .navbar {
+     height: auto;
+     padding: 10px;
+ }
+}
+
+.meet-agents{
+ margin-top: 20px;
+ text-align: center;
+ font-size: 1.6em;
+}
+.meet-header {
+ font-size: 2.2em;
+ text-align: center;
+ margin-top: 20px;
+ color: rgb(150, 6, 6);
+}
+ .matters{
+
+     text-align: center;
+     margin-top: 50px;
+     font-size: 3.8em;
+     font-weight: 900;
+ }
+ .meet-agents p{
+     
+     margin-top: 20px;
+ }
+ .agent-box {
+         background: white;
+         border: 1px solid #ddd;
+         border-radius: 8px;
+         overflow: hidden;
+         text-align: center;
+         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+         padding-bottom: 10px;
+         margin-bottom: 20px;
+     }
+     .agent-box img {
+         width: 100%;
+         height: 250px;
+         object-fit: cover;
+     }
+     .details-section {
+         padding: 15px;
+     }
+     .contact-button {
+         border: 1px solid red;
+         color: red;
+         background: transparent;
+         padding: 8px 12px;
+         text-decoration: none;
+         display: inline-block;
+         margin-top: 10px;
+         border-radius: 5px;
+     }
+     .contact-button:hover {
+         background: red;
+         color: white;
+     }
+     .pagination {
+         display: flex;
+         justify-content: center;
+         margin-top: 20px;
+     }
+     .pagination a {
+         padding: 8px 12px;
+         margin: 5px;
+         border: 1px solid red;
+         color: red;
+         text-decoration: none;
+         border-radius: 5px;
+     }
+     .pagination a.active {
+         background: red;
+         color: white;
+     }
+  
+    
+     .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    width: 90%; /* Make it responsive */
+    max-width: 500px; /* Prevents it from being too large on big screens */
+    height: auto;
+    max-height: 80vh; /* Prevents overflow on small screens */
+    overflow-y: auto;
+    border-radius: 8px;
+    position: relative;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal-content h2 {
+    text-align: center;
+    font-size: 20px;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Updated Flexbox for Better Mobile Layout */
+.form-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.form-group {
+    width: 100%; /* Makes fields full width on mobile */
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+textarea {
+    width: 100%;
+    height: 120px; /* Increased height */
+    resize: none;
+    padding: 10px;
+    font-size: 16px;
+}
+
+/* Centering Button */
+buttonx {
+    width: 100%;
+    padding: 12px;
+    background-color: rgb(208, 7, 7);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: darkred;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        max-width: 400px;
+    }
+    
+    .form-group {
+        width: 100%; /* Full width on mobile */
+    }
+
+    textarea {
+        height: 100px;
+    }
+
+    button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-content {
+        width: 95%;
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    .form-group label {
+        font-size: 14px;
+    }
+
+    textarea {
+        height: 90px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal {
+ display: none;
+ position: fixed;
+ z-index: 1000;
+ left: 0;
+ top: 0;
+ width: 100%;
+ height: 100%;
+ background-color: rgba(0, 0, 0, 0.4);
+
+}
+
+.modal-content {
+ background: white;
+ width: 40%;
+ margin: 20% auto;
+ padding: 20px;
+ border-radius: 8px;
+
+ position: relative;
+}
+
+/* Footer General Styling */
+.footer {
+background-color: black;
+color: white;
+padding: 30px 20px;
+font-size: 14px;
+height: 40rem;
+text-align: start;
+
+}
+
+/* Footer Container - Flexbox for Layout */
+.footer-container {
+display: flex;
+justify-content: space-between;
+flex-wrap: wrap;
+max-width: 1200px;
+margin: auto;
+
+}
+
+/* Left and Right Sections */
+.footer-left, .footer-right {
+width: 48%; /* Each takes up 48% of space on larger screens */
+line-height: 1.6;
+}
+
+/* Footer Bottom Section */
+.footer-bottom {
+text-align: center;
+margin-top: 20px;
+font-size: 13px;
+border-top: 1px solid gray;
+padding-top: 15px;
+}
+.footer-header{
+ font-size: 24px;
+ text-align: center;
+ font-weight: bold;
+ padding-bottom: 15px;
+ border-bottom: 1px solid gray;
+ margin-bottom: 20px;
+ height: auto;
+
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+ .footer {
+background-color: black;
+color: white;
+padding: 30px 20px;
+font-size: 14px;
+height: 70rem;
+text-align: start;
+
+}
+.footer-container {
+flex-direction: column;
+text-align: center;
+}
+
+.footer-left, .footer-right {
+width: 100%;
+margin-bottom: 20px;
+}
+.footer-header {
+     font-size: 18px;
+     text-align: center;
+    
+ }
+.footer-bottom {
+font-size: 12px;
+}
+}
+
+/* Footer Header Styling */
+.footer-header {
+text-align: center;
+font-size: 16px;
+font-weight: bold;
+padding-bottom: 15px;
+border-bottom: 1px solid gray;
+margin-bottom: 20px;
+}
+
+
+
+    </style>
+</head>
+<body>
+    <nav class="mainNv">
+        <div class="mainNav-container">
+          <!-- Logo -->
+           <div class="logo-img">
+            <a href="#" class="logo">
+                <!-- <img src="img/pplaces.jpg" alt="Logo"> -->
+              </a>
+           </div>
+          
+      
+          <!-- Toggle Button -->
+          <button class="Navmenu-toggle" id="NavmenuToggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+           
+          </button>
+      
+          <!-- Navigation Links -->
+          <ul class="mainnav-links" id="mainnavLinks">
+            <button class="closeNav-toggle" id="closeNavToggle">✕</button>
+            <li><a href="index.html">Buy</a></li>
+            <li><a href="Apartment.html">Rent</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Agents</a></li>
+            
+          </ul>
+        </div>
+      </nav>
+      
+      
+
+    <div class="second-header">
+        <div class="feature">
+            <p><a href="">Featured Listings</a></p>
+        </div>
+        <div class="agents">
+            <p><a href="">Agents</a></p>
+        </div>
+        <div class="New-Developmet">
+           <p> <a href="">New-Developmet</a></p>
+        </div>
+        <div class="offices">
+           <p> <a href="">Offices</a></p>
+        </div>
+    </div>
+    
+    <div class="meet-agents">
+
+        <header class="meet-header">Meet Our Agents</header>
+        <div class="matters">
+            <h4>Who You Work With to Buy or Sell Your Home Matters</h4>
+        </div>
+        <p>Quality over quantity is our non-negotiable. The Propertiesdotcom carefully selects our real estate</p>
+        <p>partners ensuring our agents are the best experts, advocates and advisors in the business.</p>
+    </div>
+
+<div class="container py-4">
+    <h2 class="text-center mb-4">Our Agents</h2>
+
+    <div class="row" id="agents-container">
+        <!-- Agents will be loaded here dynamically -->
+    </div>
+
+    <div class="pagination" id="pagination-container">
+        <!-- Pagination numbers will be added here dynamically -->
+    </div>
+</div>
+
+<div id="emailModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 id="agentName">Contact Agent</h2>
+        <form>
+            <div class="form-container">
+                <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input type="text" id="firstName" name="firstName">
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" id="lastName" name="lastName">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+            </div>
+            <label for="comments">Comments</label>
+            <textarea id="comments" name="comments"></textarea>
+            <div class="checj">
+                <input type="checkbox" name="" id="">
+            <p>By submitting your information, you consent to receive marketing/promotional content by email, SMS, and/or phone. Message and data rates may apply. You may opt out at any time per our Privacy Policy.</p>
+            </div>
+            <buttonx type="submit">Submit</button>
+         
+            
+        </form>
+    </div>
+</div>
+<div id="thankYouModal" class="modal">
+    <div class="modal-content">
+        <span class="close-thankyou">&times;</span>
+        <h2 style="color: white; background: red; padding: 10px; text-align: center;">THANK YOU</h2>
+        <p style="text-align: center;">Thank you for your message. I will contact you shortly.</p>
+        <button id="closeThankYouBtn" style="display: block; margin: 10px auto; background: red; color: white; padding: 10px; border: none;">OK</button>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <div class="footer-header">
+        <h5>Terms of Use Privacy Policy Quebec Privacy policy (Law 25) CCPA DMCA Accessibility</h5>
+    </div>
+<div class="footer-container">
+    <!-- Left Section -->
+    <div class="footer-left">
+        <p><strong>NEW YORK STATE FAIR HOUSING NOTICE</strong></p>
+        <p>New York State Standard Operating Procedures NYC - LONG ISLAND - BROOKLYN</p>
+        <p>NEW YORK STATE NOTICE OF REASONABLE ACCOMMODATIONS FOR PERSONS WITH DISABILITIES</p>
+        <p><strong>TEXAS REAL ESTATE COMMISSION INFORMATION ABOUT BROKERAGE SERVICES</strong></p>
+        <p>TEXAS REAL ESTATE COMMISSION CONSUMER PROTECTION NOTICE</p>
+        <p>Search by: LOCATIONIQ.COM | LIVRO DE RECLAMAÇÕES | RESOLUÇÃO DE LITÍGIOS</p>
+    </div>
+
+    <!-- Right Section -->
+    <div class="footer-right">
+        <p>The Propertiesdotcom fully supports the Equal Housing Opportunity laws. The Propertiesdotcom, LLC and its parents, affiliates, subsidiaries, franchisees of its affiliates, and network partners make no representations, warranties, or guarantees as to the accuracy of the information contained herein, including square footage, lot size or other information concerning the condition, suitability or features of the property. All material is intended for informational purposes only and has been obtained from public records, MLS, or other sources believed to be reliable, but not verified. All prospective buyers should conduct a careful, independent investigation of the information and property, and consult with appropriate professionals, such as appraisers, architects, civil engineers, etc. CalDRE #01904054</p>
+    </div>
+</div>
+
+<!-- Bottom Section -->
+<div class="footer-bottom">
+    <p>© 2024 The Propertiesdotcom, LLC. The Propertiesdotcom and The Propertiesdotcom logo are registered trademarks of The Propertiesdotcom IP Holdco, LLC under license to its parents and affiliates. All rights in such marks are reserved by The Propertiesdotcom Propertiesdotcom, LLC.</p>
+</div>
+</footer>
+
+
+
+
+
+
+<script>
+    // Sample agent data
+const agents = [
+    { name: "Aaron Erwin", role: "Sales Representative", phone: "+1 (424) 600-5756", license: "DRE 01918229 (CA)", img: "img/adam agnt.jpg" },
+    { name: "Aaron Johnson", role: "Agent", phone: "+1 (310) 299-3171", license: "DRE 02180086 (CA)", img: "img/agent2.jpg" },
+    { name: "Aaron Leiter", role: "Broker Associate", phone: "+1 (719) 232-7455", license: "DRE 2157481 (CA)", img: "img/agnt 3.jpg" },
+    { name: "Aaron Smith", role: "Agent", phone: "+1 (313) 801-1018", license: "6506042244 (MI)", img: "img/authur.jpg" },
+    { name: "Aayeesha Essue", role: "Agent", phone: "+1 (480) 621-1244", license: "50191251 (NV)", img: "img/agnt 4.jpg" },
+    { name: "Abbie Jimales", role: "Agent, South Bay", phone: "+1 (517) 290-0355", license: "FA100094849", img: "img/agnt 4.jpg" },
+    { name: "Abby Canlin", role: "Agent", phone: "+1 (469) 485-2260", license: "SA546370000 (AZ)", img: "img/philip.jpg" },
+    { name: "Abby Nava", role: "Agent | Service Coordinator", phone: "+1 (347) 928-7622", license: "DRE 01963659 (CA)", img: "img/joshua.jpg" },
+    { name: "Abby Nava", role: "Agent | Service Coordinator", phone: "+1 (347) 928-7622", license: "DRE 01963659 (CA)", img: "img/joshua.jpg" },
+   
+    { name: "Abby Nava", role: "Agent | Service Coordinator", phone: "+1 (347) 928-7622", license: "DRE 01963659 (CA)", img: "img/joshua.jpg" },
+   
+    { name: "Abby Nava", role: "Agent | Service Coordinator", phone: "+1 (347) 928-7622", license: "DRE 01963659 (CA)", img: "img/joshua.jpg" },
+   
+    { name: "Abby Nava", role: "Agent | Service Coordinator", phone: "+1 (347) 928-7622", license: "DRE 01963659 (CA)", img: "img/joshua.jpg" },
+    { name: "Abby Nava", role: "Agent | Service Coordinator", phone: "+1 (347) 928-7622", license: "DRE 01963659 (CA)", img: "img/joshua.jpg" },
+    { name: "Abby Nava", role: "Agent | Service Coordinator", phone: "+1 (347) 928-7622", license: "DRE 01963659 (CA)", img: "img/joshua.jpg" },
+    { name: "Abby Nava", role: "Agent | Service Coordinator", phone: "+1 (347) 928-7622", license: "DRE 01963659 (CA)", img: "img/joshua.jpg" },
+    { name: "Abby Nava", role: "Agent | Service Coordinator", phone: "+1 (347) 928-7622", license: "DRE 01963659 (CA)", img: "img/joshua.jpg" },
+   
+];
+
+const agentsPerPage = 8; // Adjust this as needed
+let currentPage = 1;
+
+// Function to display agents for the current page
+function displayAgents(page) {
+    const start = (page - 1) * agentsPerPage;
+    const end = start + agentsPerPage;
+    const visibleAgents = agents.slice(start, end);
+
+    const container = document.getElementById("agents-container");
+    container.innerHTML = ""; // Clear previous agents
+
+    visibleAgents.forEach(agent => {
+        container.innerHTML += `
+            <div class="col-md-3">
+                <div class="agent-box">
+                    <img src="${agent.img}" alt="${agent.name}">
+                    <div class="details-section">
+                        <h5><em>${agent.name}</em></h5>
+                        <p><strong>${agent.role}</strong></p>
+                        <p>${agent.phone}</p>
+                        <p>License: ${agent.license}</p>
+                        <a href="#" class="contact-button">Email Me</a>
+                    </div>
+                </div>
+            </div>
+        `;
+    });
+
+    setupEmailButtons(); // ✅ Reattach event listeners to new "Email Me" buttons
+}
+
+// Function to setup pagination
+function setupPagination() {
+    const pageCount = Math.ceil(agents.length / agentsPerPage);
+    const paginationContainer = document.getElementById("pagination-container");
+    paginationContainer.innerHTML = ""; // Clear previous pagination
+
+    for (let i = 1; i <= pageCount; i++) {
+        const pageLink = document.createElement("a");
+        pageLink.textContent = i;
+        pageLink.href = "#";
+        pageLink.classList.add("page-link");
+        if (i === currentPage) {
+            pageLink.classList.add("active");
+        }
+        pageLink.addEventListener("click", (e) => {
+            e.preventDefault();
+            currentPage = i;
+            displayAgents(currentPage); // Updates agent list
+            setupPagination(); // Updates pagination
+        });
+        paginationContainer.appendChild(pageLink);
+    }
+}
+
+// Function to setup event listeners for "Email Me" buttons
+function setupEmailButtons() {
+    document.querySelectorAll(".contact-button").forEach(button => {
+        button.removeEventListener("click", showModal); // Prevent duplicate event listeners
+        button.addEventListener("click", showModal);
+    });
+}
+
+// Function to handle modal popup
+function showModal(event) {
+    event.preventDefault();
+    const agentCard = this.closest(".agent-box");
+    const agentName = agentCard.querySelector("h5 em").textContent;
+    document.getElementById("agentName").textContent = `Contact ${agentName}`;
+    document.getElementById("emailModal").style.display = "block";
+}
+
+// Function to close the modal
+function setupModal() {
+    const modal = document.getElementById("emailModal");
+    const closeModal = document.querySelector(".close");
+
+    closeModal.addEventListener("click", function () {
+        modal.style.display = "none";
+    });
+
+    window.addEventListener("click", function (event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    });
+}
+
+// ✅ Run everything on page load
+document.addEventListener("DOMContentLoaded", function () {
+    displayAgents(currentPage);
+    setupPagination();
+    setupModal(); // Setup modal functionality
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Form Submission Handler
+    document.querySelector("form").addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent actual form submission
+
+        // Hide the email modal
+        document.getElementById("emailModal").style.display = "none";
+
+        // Show the Thank You modal
+        document.getElementById("thankYouModal").style.display = "block";
+    });
+
+    // Close Thank You Modal when clicking the close button
+    document.getElementById("closeThankYouBtn").addEventListener("click", function () {
+        document.getElementById("thankYouModal").style.display = "none";
+    });
+
+    // Close Thank You Modal when clicking the (X)
+    document.querySelector(".close-thankyou").addEventListener("click", function () {
+        document.getElementById("thankYouModal").style.display = "none";
+    });
+
+    // Close modal if user clicks outside the modal
+    window.addEventListener("click", function (event) {
+        if (event.target === document.getElementById("thankYouModal")) {
+            document.getElementById("thankYouModal").style.display = "none";
+        }
+    });
+});
+
+</script>
+<script>
+    // JavaScript for Navbar Toggle
+  // JavaScript for Navbar Toggle
+  const toggleButton = document.getElementById("NavmenuToggle");
+  const closeNavButton = document.getElementById("closeNavToggle");
+  const navLinks = document.getElementById("mainnavLinks");
+  
+  // Function to show or hide the navigation menu
+  const toggleNav = () => {
+    navLinks.classList.toggle("show");
+  };
+  
+  // Event listener for the main toggle button
+  if (toggleButton) {
+    toggleButton.addEventListener("click", toggleNav);
+  }
+  
+  // Event listener for the close button inside the menu
+  if (closeNavButton) {
+    closeNavButton.addEventListener("click", toggleNav);
+  }
+  
+  // Optional: Close the nav menu when clicking on a link (for smaller screens)
+  const navItems = document.querySelectorAll(".mainnav-links a");
+  navItems.forEach((item) => {
+    item.addEventListener("click", () => {
+      navLinks.classList.remove("show");
+    });
+  });
+  
+  </script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
